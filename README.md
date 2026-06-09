@@ -1,6 +1,7 @@
-<h1 align="center" style="display: flex; align-items: center; gap: 10px">
-  <img src="./public/images/logo.png" alt="Hayssa Gomes" width="50"/>
-  <span> PortfolioV2 </span>
+<h1>
+  <img src="./public/images/logo.png" alt="Hayssa Gomes" width="50" />
+  <br />
+  PortfolioV2
 </h1>
 
 <p align="center">
