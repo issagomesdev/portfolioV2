@@ -1,14 +1,14 @@
 import type { Stat } from '@/types';
 
 const stats: Stat[] = [
-  { value: '05+', label: 'Anos Exp',  color: 'text-primary' },
-  { value: '40+', label: 'Projetos',  color: 'text-secondary' },
-  { value: '12',  label: 'Prêmios',   color: 'text-tertiary' },
+  { value: '04+', label: 'Anos Exp', color: 'text-primary' },
+  { value: '15+', label: 'Projetos', color: 'text-secondary' },
+  { value: '10+', label: 'Clientes', color: 'text-tertiary' },
 ];
 
 const skills = [
-  { number: '#01', color: 'text-primary',   title: 'Frontend Expert', sub: 'React, Next.js, Framer Motion' },
-  { number: '#02', color: 'text-secondary', title: 'UI/UX Design',     sub: 'Figma, Design Systems' },
+  { number: '#01', color: 'text-primary', title: 'Frontend Engineering', sub: 'React, Next.js, TypeScript' },
+  { number: '#02', color: 'text-secondary', title: ' Backend & APIs', sub: 'Node.js, Laravel, Docker' },
 ];
 
 const techTags = ['UI_LOGIC', 'REACT_CORE', 'NODE_API', 'FIGMA_DEV', 'ANIM_CSS', 'TYPESCRIPT'];
@@ -64,25 +64,23 @@ export default function AboutSection() {
               <h2 className="font-headline text-5xl md:text-6xl font-bold leading-tight tracking-tighter">
                 Arquiteta de <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">
-                  Interfaces
+                  Soluções Digitais
                 </span>
               </h2>
             </div>
 
             <div className="space-y-5 text-on-surface/80 leading-relaxed max-w-xl">
               <p className="font-body text-lg">
-                Olá, eu sou a <span className="text-on-surface font-semibold">Hayssa Gomes</span>. Minha jornada
-                no desenvolvimento começou com a curiosidade de entender como a estética visual e a lógica
-                computacional poderiam coexistir em perfeita harmonia.
+                Olá, meu nome é <span className="text-on-surface font-semibold">Hayssa Gomes</span>, sou desenvolvedora fullstack com foco em front-end e moro em Paulista, Pernambuco. Iniciei minha trajetória em 2019, ainda no colégio, estudando desenvolvimento web e transformando minha facilidade com tecnologia em prática constante.
+                </p>
+              <p className="font-body">
+                Ao longo dos últimos anos, atuando como freelancer, participei de projetos para diferentes áreas, desenvolvendo interfaces responsivas, APIs, integrações, autenticação, bancos de dados, manutenção, correção de bugs, versionamento e deploy. Essa experiência também fortaleceu minha visão de produto: entender necessidades reais, analisar requisitos, propor soluções e lidar com prazos.
               </p>
               <p className="font-body">
-                Especializada em criar ecossistemas digitais que não apenas funcionam, mas encantam. Trabalho na
-                interseção do design editorial e da engenharia de software, utilizando stacks modernas como React,
-                Tailwind CSS e arquiteturas de alta performance.
+                  Em 2025, concluí minha formação técnica em Análise e Desenvolvimento de Sistemas, onde aprofundei conhecimentos técnicos e desenvolvi ainda mais minha colaboração em equipe, comunicação e responsabilidade compartilhada.
               </p>
               <p className="font-body">
-                Para mim, código é poesia estruturada. Cada pixel tem um propósito e cada linha de lógica é um
-                passo em direção a uma experiência de usuário sem atritos.
+                Hoje, busco construir soluções digitais completas, unindo estética, performance, usabilidade e arquitetura bem estruturada.
               </p>
             </div>
 

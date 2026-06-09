@@ -64,7 +64,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="p-2 hover:bg-surface-container-high rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            className="flex p-2 hover:bg-surface-container-high rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={theme === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'}
           >
             <span className="material-symbols-outlined text-primary">
