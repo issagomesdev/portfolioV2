@@ -1,0 +1,160 @@
+@import './theme.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base body ──────────────────────────────────────────────────────────── */
+body {
+  background-color: rgb(var(--c-surface));
+  color: rgb(var(--c-on-surface));
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── Material Symbols icon rendering ───────────────────────────────────── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  user-select: none;
+}
+
+/* ── Smooth theme transition ────────────────────────────────────────────── */
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+/* ── Glass header ───────────────────────────────────────────────────────── */
+.glass-header {
+  backdrop-filter: blur(20px);
+  background: rgb(var(--c-surface) / 0.85);
+}
+
+/* ── Cyber grid background ──────────────────────────────────────────────── */
+.cyber-grid {
+  background-image:
+    linear-gradient(to right, rgb(var(--c-outline-variant) / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--c-outline-variant) / 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ── Ghost border ───────────────────────────────────────────────────────── */
+.ghost-border {
+  border: 1px solid rgb(var(--c-outline-variant) / 0.3);
+}
+
+/* ── Glow on hover (service cards) ─────────────────────────────────────── */
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgb(var(--c-primary) / 0.12), 0 4px 20px rgb(0 0 0 / 0.2);
+}
+
+/* ── Scanline CRT overlay (profile image) ──────────────────────────────── */
+.scanline-overlay {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgb(0 0 0 / 0.03) 2px,
+    rgb(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* ── Text glow (hero headline) ──────────────────────────────────────────── */
+.text-glow {
+  text-shadow: 0 0 20px rgb(var(--c-primary) / 0.35);
+}
+
+/* ── Glitch hover ───────────────────────────────────────────────────────── */
+.glitch-effect:hover {
+  text-shadow: 2px 0 rgb(var(--c-secondary) / 0.7), -2px 0 rgb(var(--c-tertiary) / 0.7);
+}
+
+/* ── Hide scrollbar ─────────────────────────────────────────────────────── */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Glass modal ────────────────────────────────────────────────────────── */
+.glass-modal {
+  background: rgb(var(--c-surface-container-low) / 0.92);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgb(var(--c-primary) / 0.15);
+  box-shadow: 0 0 80px rgb(var(--c-primary-container) / 0.08);
+}
+
+/* ── Neon border glow ───────────────────────────────────────────────────── */
+.neon-border-glow {
+  box-shadow:
+    0 0 15px rgb(var(--c-primary) / 0.3),
+    inset 0 0 10px rgb(var(--c-primary) / 0.1);
+}
+
+/* ── Brand component (Wordmark / MainBrand) ─────────────────────────────── */
+.brand-name {
+  font-family: 'Sansation', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  background: var(--brand-name-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  left: 6px;
+  position: relative;
+}
+
+.brand-surname {
+  font-family: 'Sansation', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffb0be 0%, #ff8fa3 42%, #ff5f7d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  left: 3px;
+  position: relative;
+}
+
+.brand-line {
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff30 0%, #b75cff 18%, #ff8fa3 55%, #78787830 100%);
+  box-shadow: 0 0 8px rgb(255 143 163 / 0.45), 0 0 16px rgb(183 92 255 / 0.25);
+}
+
+.brand-line.inverse {
+  background: linear-gradient(90deg, #78787830 0%, #ff8fa3 45%, #b75cff 82%, #ffffff30 100%);
+  box-shadow: 0 0 16px rgb(183 92 255 / 0.25), 0 0 8px rgb(255 143 163 / 0.45);
+}
+
+/* ── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: rgb(var(--c-primary-container) / 0.4);
+  color: rgb(var(--c-on-primary-container));
+}
+
+/* ── Smooth scrolling ───────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Cursor blink (CodeConsole) ─────────────────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  animation: cursor-blink 0.9s step-start infinite;
+}

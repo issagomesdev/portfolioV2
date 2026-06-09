@@ -1,0 +1,106 @@
+/* Color tokens as space-separated RGB values.
+   This format lets Tailwind opacity modifiers work: bg-primary/10 → rgb(var(--c-primary) / 0.1) */
+
+/* ── Light mode (default) ───────────────────────────────────────────────── */
+:root {
+  --brand-name-gradient: linear-gradient(180deg, #1a1a1a 0%, #3a3a3a 50%, #5a5a5a 100%);
+  --c-background:                250 247 247;
+  --c-surface:                   250 247 247;
+  --c-surface-dim:               240 234 234;
+  --c-surface-bright:            255 255 255;
+  --c-surface-variant:           221 212 212;
+  --c-surface-container-lowest:  255 255 255;
+  --c-surface-container-low:     244 238 238;
+  --c-surface-container:         237 230 230;
+  --c-surface-container-high:    229 220 220;
+  --c-surface-container-highest: 221 212 212;
+  --c-surface-tint:              199 0 56;
+  --c-on-background:             26 21 22;
+  --c-on-surface:                26 21 22;
+  --c-on-surface-variant:        92 64 64;
+  --c-inverse-surface:           26 21 22;
+  --c-inverse-on-surface:        240 234 234;
+  --c-primary:                   199 0 56;
+  --c-on-primary:                255 255 255;
+  --c-primary-container:         255 81 103;
+  --c-on-primary-container:      61 0 15;
+  --c-primary-fixed:             255 218 218;
+  --c-primary-fixed-dim:         255 179 181;
+  --c-on-primary-fixed:          64 0 12;
+  --c-on-primary-fixed-variant:  146 0 39;
+  --c-inverse-primary:           255 179 181;
+  --c-secondary:                 0 106 112;
+  --c-on-secondary:              255 255 255;
+  --c-secondary-container:       0 159 168;
+  --c-on-secondary-container:    0 32 34;
+  --c-secondary-fixed:           125 244 255;
+  --c-secondary-fixed-dim:       0 219 233;
+  --c-on-secondary-fixed:        0 32 34;
+  --c-on-secondary-fixed-variant:0 79 84;
+  --c-tertiary:                  112 0 168;
+  --c-on-tertiary:               255 255 255;
+  --c-tertiary-container:        195 101 255;
+  --c-on-tertiary-container:     69 0 105;
+  --c-tertiary-fixed:            244 217 255;
+  --c-tertiary-fixed-dim:        229 181 255;
+  --c-on-tertiary-fixed:         48 0 75;
+  --c-on-tertiary-fixed-variant: 112 0 168;
+  --c-error:                     179 38 30;
+  --c-on-error:                  255 255 255;
+  --c-error-container:           255 218 214;
+  --c-on-error-container:        65 0 2;
+  --c-outline:                   138 106 106;
+  --c-outline-variant:           212 192 192;
+}
+
+/* ── Dark mode ──────────────────────────────────────────────────────────── */
+.dark {
+  --brand-name-gradient: linear-gradient(180deg, #ffffff 0%, #f7f7f7 35%, #b8b8b8 72%, #9f9f9f 100%);
+  --c-background:                19 19 19;
+  --c-surface:                   19 19 19;
+  --c-surface-dim:               19 19 19;
+  --c-surface-bright:            57 57 57;
+  --c-surface-variant:           53 53 53;
+  --c-surface-container-lowest:  14 14 14;
+  --c-surface-container-low:     27 28 28;
+  --c-surface-container:         31 32 32;
+  --c-surface-container-high:    42 42 42;
+  --c-surface-container-highest: 53 53 53;
+  --c-surface-tint:              255 179 181;
+  --c-on-background:             228 226 225;
+  --c-on-surface:                228 226 225;
+  --c-on-surface-variant:        230 188 189;
+  --c-inverse-surface:           228 226 225;
+  --c-inverse-on-surface:        48 48 48;
+  --c-primary:                   255 179 181;
+  --c-on-primary:                104 0 25;
+  --c-primary-container:         255 81 103;
+  --c-on-primary-container:      91 0 21;
+  --c-primary-fixed:             255 218 218;
+  --c-primary-fixed-dim:         255 179 181;
+  --c-on-primary-fixed:          64 0 12;
+  --c-on-primary-fixed-variant:  146 0 39;
+  --c-inverse-primary:           190 0 54;
+  --c-secondary:                 211 251 255;
+  --c-on-secondary:              0 54 58;
+  --c-secondary-container:       0 238 252;
+  --c-on-secondary-container:    0 104 111;
+  --c-secondary-fixed:           125 244 255;
+  --c-secondary-fixed-dim:       0 219 233;
+  --c-on-secondary-fixed:        0 32 34;
+  --c-on-secondary-fixed-variant:0 79 84;
+  --c-tertiary:                  229 181 255;
+  --c-on-tertiary:               78 0 120;
+  --c-tertiary-container:        195 101 255;
+  --c-on-tertiary-container:     69 0 105;
+  --c-tertiary-fixed:            244 217 255;
+  --c-tertiary-fixed-dim:        229 181 255;
+  --c-on-tertiary-fixed:         48 0 75;
+  --c-on-tertiary-fixed-variant: 112 0 168;
+  --c-error:                     255 180 171;
+  --c-on-error:                  105 0 5;
+  --c-error-container:           147 0 10;
+  --c-on-error-container:        255 218 214;
+  --c-outline:                   173 136 136;
+  --c-outline-variant:           93 63 64;
+}
