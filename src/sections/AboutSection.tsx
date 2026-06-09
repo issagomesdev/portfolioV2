@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import type { Stat } from '@/types';
+import CvDownloadModal from '@/components/ui/CvDownloadModal';
 
 const stats: Stat[] = [
   { value: '04+', label: 'Anos Exp', color: 'text-primary' },
@@ -16,6 +18,8 @@ const tagColors = ['text-primary', 'text-secondary', 'text-tertiary', 'text-prim
 const dotColors = ['bg-primary', 'bg-secondary', 'bg-tertiary', 'bg-primary', 'bg-secondary', 'bg-tertiary'];
 
 export default function AboutSection() {
+  const [cvModalOpen, setCvModalOpen] = useState(false);
+
   return (
     <section id="about" className="relative min-h-screen flex flex-col overflow-hidden pt-20">
       <div className="max-w-7xl mx-auto px-6 py-16 w-full">
@@ -71,16 +75,21 @@ export default function AboutSection() {
 
             <div className="space-y-5 text-on-surface/80 leading-relaxed max-w-xl">
               <p className="font-body text-lg">
-                Olá, meu nome é <span className="text-on-surface font-semibold">Hayssa Gomes</span>, sou desenvolvedora fullstack com foco em front-end e moro em Paulista, Pernambuco. Iniciei minha trajetória em 2019, ainda no colégio, estudando desenvolvimento web e transformando minha facilidade com tecnologia em prática constante.
+                Sou <span className="text-on-surface font-semibold">Hayssa Gomes</span>, desenvolvedora fullstack de Paulista, Pernambuco, e atuo na construção de soluções que conectam interface, arquitetura, performance e segurança. 
                 </p>
               <p className="font-body">
-                Ao longo dos últimos anos, atuando como freelancer, participei de projetos para diferentes áreas, desenvolvendo interfaces responsivas, APIs, integrações, autenticação, bancos de dados, manutenção, correção de bugs, versionamento e deploy. Essa experiência também fortaleceu minha visão de produto: entender necessidades reais, analisar requisitos, propor soluções e lidar com prazos.
+                Iniciei minha trajetória em 2019, ainda no colégio, explorando diferentes áreas da tecnologia e transformando minha facilidade com sistemas, lógica e criação em prática constante. Ao longo dos últimos anos, atuando como freelancer, participei de projetos para diferentes áreas, desenvolvendo interfaces responsivas, APIs, integrações, autenticação, bancos de dados, manutenção, correção de bugs, versionamento e deploy. Essa experiência fortaleceu minha visão completa do desenvolvimento: da experiência visual à estrutura do back-end, sempre considerando performance, boas práticas e segurança e buscando construir soluções não apenas bonitas e funcionais, mas também bem arquitetadas, confiáveis e preparadas para cenários reais de uso.
               </p>
+              <p className="font-body">
+                Essa experiência também fortaleceu minha visão sobre as etapas que antecedem o código: escutar necessidades, entender o contexto do projeto, pesquisar ferramentas, levantar requisitos, planejar soluções e tomar decisões técnicas com base no problema real. Esse processo me ajudou a desenvolver uma atuação mais completa, unindo execução técnica, visão de produto e responsabilidade com a entrega.
+              </p>
+              
               <p className="font-body">
                   Em 2025, concluí minha formação técnica em Análise e Desenvolvimento de Sistemas, onde aprofundei conhecimentos técnicos e desenvolvi ainda mais minha colaboração em equipe, comunicação e responsabilidade compartilhada.
               </p>
+              
               <p className="font-body">
-                Hoje, busco construir soluções digitais completas, unindo estética, performance, usabilidade e arquitetura bem estruturada.
+                Hoje, busco criar soluções digitais completas, bem estruturadas e preparadas para uso real, conectando experiência do usuário, regras de negócio, performance e segurança.
               </p>
             </div>
 
@@ -107,14 +116,18 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-white/10 group-hover:translate-x-full transition-transform duration-500" />
                 <span className="relative font-headline font-bold text-on-primary tracking-tight">Entrar em contato</span>
               </a>
-              <a href="/cv.pdf" download className="flex items-center gap-2 group" aria-label="Baixar CV">
-                <span className="font-label text-sm uppercase tracking-widest text-on-surface hover:text-primary transition-colors">
+              <button
+                onClick={() => setCvModalOpen(true)}
+                className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                aria-label="Baixar CV"
+              >
+                <span className="font-label text-sm uppercase tracking-widest text-on-surface group-hover:text-primary transition-colors">
                   Download CV
                 </span>
                 <span className="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform" aria-hidden="true">
                   download
                 </span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -134,6 +147,8 @@ export default function AboutSection() {
           </div>
         </div>
       </div>
+
+      {cvModalOpen && <CvDownloadModal onClose={() => setCvModalOpen(false)} />}
     </section>
   );
 }

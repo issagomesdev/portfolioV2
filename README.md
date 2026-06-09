@@ -89,6 +89,9 @@ O visual adota um design system próprio inspirado em terminais, interfaces de c
 - [x] Variáveis de ambiente via `.env`
 - [x] Suporte a `prefers-reduced-motion`
 - [x] Acessibilidade básica (aria-labels, sr-only, roles semânticos)
+- [x] Modal de Download CV com listagem automática de PDFs via Google Drive + Apps Script
+- [x] Serviço de dados (`cvService`) com cache de sessão e tratamento de erros
+- [x] Utilitário `formatCvName` para formatar nomes de arquivos
 
 ### 🔜 Planejado
 
@@ -140,6 +143,9 @@ Components (Layout, Brand, UI)
 Hooks (useTheme, useActiveSection, useTypewriterCode)
       │
       ▼
+Services (cvService — fetch + cache de sessão)
+      │
+      ▼
 Data (projetos, serviços, stack, navegação)
       │
       ▼
@@ -174,6 +180,10 @@ portfolio-v2/
 │   ├── data/                   # Dados estáticos utilizados nas seções, como projetos, stacks e links
 │   │
 │   ├── hooks/                  # Hooks customizados para lógica reutilizável e comportamentos da interface
+│   │
+│   ├── services/               # Serviços de dados externos (ex: cvService para buscar CVs no Drive)
+│   │
+│   ├── utils/                  # Funções utilitárias puras (ex: formatCvName)
 │   │
 │   ├── sections/               # Seções principais da landing page, como Hero, About, Projects e Contact
 │   │
@@ -231,6 +241,20 @@ portfolio-v2/
 - Cards com thumbnail, stack de tecnologias e links
 - Modal com case study completo (problema, solução, desafios, resultados)
 - Layout responsivo em grid
+
+### 👩‍💼 Sobre
+
+- Foto de perfil com scanline overlay e efeito hover
+- Stats (anos de exp., projetos, clientes)
+- Bio completa com parágrafos descritivos
+- Tags de especialização
+- CTA para contato
+- **Botão Download CV** — abre modal que lista automaticamente todos os PDFs de uma pasta do Google Drive, sem necessidade de alterar código ao adicionar ou remover arquivos
+  - Busca os arquivos via Google Apps Script (endpoint público, sem autenticação)
+  - Cache de sessão: a lista é buscada uma única vez por visita
+  - Estados: carregando, erro (com retry), vazio, lista de arquivos
+  - Cada item exibe nome formatado, data de atualização, e botões para visualizar e baixar
+  - Fecha com `Esc`, clique no backdrop ou botão X
 
 ### 📬 Contato
 
@@ -326,14 +350,54 @@ PORT=3000
 
 # URL da API (para integrações futuras)
 VITE_API_URL=http://localhost:3333
+
+# Endpoint do Google Apps Script para listagem de CVs
+VITE_CV_ENDPOINT=https://script.google.com/macros/s/SEU_ID_DO_DEPLOY/exec
 ```
 
-| Variável        | Padrão                    | Descrição                                  |
-|-----------------|---------------------------|--------------------------------------------|
-| `PORT`          | `3000`                    | Porta do servidor Vite e Docker            |
-| `VITE_API_URL`  | `http://localhost:3333`   | URL base da API para requisições frontend  |
+| Variável           | Padrão                    | Descrição                                                  |
+|--------------------|---------------------------|------------------------------------------------------------|
+| `PORT`             | `3000`                    | Porta do servidor Vite e Docker                            |
+| `VITE_API_URL`     | `http://localhost:3333`   | URL base da API para requisições frontend                  |
+| `VITE_CV_ENDPOINT` | —                         | URL pública do Web App do Google Apps Script para CVs      |
 
 > Variáveis com prefixo `VITE_` são expostas ao cliente via `import.meta.env`.
+
+### Configurando o endpoint de CVs
+
+O modal de Download CV consome um Google Apps Script publicado como Web App. Para configurar:
+
+1. Acesse [script.google.com](https://script.google.com) e crie um novo projeto
+2. Cole o código abaixo, substituindo o `FOLDER_ID` pelo ID da sua pasta do Drive:
+
+```js
+const FOLDER_ID = 'SEU_FOLDER_ID';
+
+function doGet() {
+  const folder = DriveApp.getFolderById(FOLDER_ID);
+  const iter = folder.getFilesByType(MimeType.PDF);
+  const files = [];
+  while (iter.hasNext()) {
+    const f = iter.next();
+    files.push({
+      id: f.getId(),
+      name: f.getName(),
+      viewUrl: 'https://drive.google.com/file/d/' + f.getId() + '/view',
+      downloadUrl: 'https://drive.google.com/uc?export=download&id=' + f.getId(),
+      updatedAt: f.getLastUpdated().toISOString(),
+    });
+  }
+  files.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+  return ContentService
+    .createTextOutput(JSON.stringify({ files }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+3. **Implante** como Web App: *Execute como: Eu* · *Quem tem acesso: Qualquer pessoa*
+4. Copie a URL gerada e cole em `VITE_CV_ENDPOINT` no `.env`
+
+> Novos PDFs adicionados à pasta aparecem automaticamente no modal, sem nenhuma alteração no código.
 
 <h2 id="docker">🐳 Docker</h2>
 

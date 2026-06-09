@@ -3,14 +3,21 @@ import { projects } from '@/data/projects';
 import ProjectModal from '@/components/ui/ProjectModal';
 import type { Project } from '@/types';
 
-type FilterCategory = 'Tudo' | 'Frontend' | 'Backend' | 'Web' | 'Desktop' | 'Mobile' | 'Games';
+type FilterCategory = 'Tudo' | 'Frontend' | 'Backend' | 'Web' |  'Mobile'  | 'Desktop' | 'Fullstack' | 'Cybersecurity' | 'Games' ;
 
-const categories: FilterCategory[] = ['Tudo', 'Frontend', 'Backend', 'Web', 'Desktop', 'Mobile', 'Games'];
+const categories: FilterCategory[] = ['Tudo', 'Frontend', 'Backend',  'Mobile', 'Desktop', 'Fullstack', 'Cybersecurity', 'Games'];
 
 const stackFilters = [
-  { icon: 'code', label: 'React' },
-  { icon: 'database', label: 'PostgreSQL' },
-  { icon: 'terminal', label: 'Node.js' },
+  { icon: 'code_blocks', label: 'JavaScript' },
+  { icon: 'data_object', label: 'TypeScript' },
+  { icon: 'deployed_code', label: 'React' },
+  { icon: 'phone_iphone', label: 'React Native' },
+  { icon: 'language', label: 'Next.js' },
+  { icon: 'dns', label: 'Node.js' },
+  { icon: 'terminal', label: 'PHP' },
+  { icon: 'account_tree', label: 'Laravel' },
+  { icon: 'database', label: 'MySQL' },
+  { icon: 'deployed_code_history', label: 'Docker' },
   { icon: 'cloud', label: 'AWS' },
 ];
 

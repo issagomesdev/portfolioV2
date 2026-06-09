@@ -40,7 +40,7 @@ export default function HeroSection() {
         </h1>
 
         <p className="max-w-2xl text-lg md:text-xl text-on-surface/60 mb-10 leading-relaxed font-body">
-          Aplicações modernas, responsivas e bem arquitetadas, unindo tecnologia, design e experiência do usuário.
+          Aplicações modernas, responsivas e bem arquitetadas, unindo performance, boas práticas, design e experiência do usuário.
         </p>
 
         {/* CTA */}

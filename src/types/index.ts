@@ -55,3 +55,11 @@ export interface Stat {
   label: string;
   color: string;
 }
+
+export interface CvFile {
+  id: string;
+  name: string;
+  viewUrl: string;
+  downloadUrl: string;
+  updatedAt?: string;
+}
