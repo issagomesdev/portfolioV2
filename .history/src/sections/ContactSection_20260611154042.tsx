@@ -1,10 +1,9 @@
 import { useState, type FormEvent } from 'react';
 
 const contactLinks = [
-  { icon: 'phone', label: 'WhatsApp', value: '+55 (81) 99108-0086', href: 'https://wa.me/5581991080086' },
-  { icon: 'mail', label: 'Email', value: 'contact@byissa.dev', href: 'mailto:contact@byissa.dev' },
-  { icon: 'link', label: 'LinkedIn', value: 'linkedin.com/in/issagomesdev', href: 'https://linkedin.com/in/issagomesdev' },
-  { icon: 'location_on', label: 'Base Location', value: 'Paulista, Pernambuco - Brazil', href: 'https://maps.google.com/?q=Paulista,+Pernambuco+-+Brazil' },
+  { icon: 'mail', label: 'Email', value: 'hayssa@dev.com', href: 'mailto:hayssa@dev.com' },
+  { icon: 'link', label: 'LinkedIn', value: 'linkedin.com/in/hayssa', href: '#' },
+  { icon: 'code', label: 'GitHub', value: 'github.com/hayssa', href: '#' },
 ];
 
 export default function ContactSection() {
@@ -27,7 +26,7 @@ export default function ContactSection() {
         <header className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-px bg-primary" aria-hidden="true" />
-            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Me envie uma mensagem</span>
+            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Get in touch</span>
           </div>
           <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter bg-gradient-to-r from-on-surface to-on-surface/50 bg-clip-text text-transparent">
             CONTATO<span className="text-primary">.</span>
@@ -61,22 +60,11 @@ export default function ContactSection() {
                   </span>
                 </a>
               ))}
-               <div className="h-48 rounded-lg overflow-hidden ghost-border relative group">
-                    <img className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
-                        data-alt="abstract dark satellite map of a coastal city with neon pink data points and glowing tech overlays"
-                        data-location="Paulista, Pernambuco"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC898WoOM2oRySFaSJrjE6VZbqxwsEoLPMlOeVsnrNspg51y70k8nrwnRoPANdXZiicxe6E2t-Pf870QGhG9c4yWndRb-E9GSSmEfXyEzTBTZ3erSVFxPp3cqiWLZXuZOZEohR741SAZfAUKlUYif_HJFByAjfvbSgBNjCtE5Or7aT0EikCmoxTHhj0OCzx76yjRW_uPiC9Frs92ugApqnhvp7jEgfkocn_M_2R3yacj83t9Le3dgrrqWtYB4D8gXWEq8Nhpm-odrNG" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-                        <span className="font-label text-xs uppercase tracking-tighter text-primary">Signal Active</span>
-                    </div>
-                </div>
             </div>
           </div>
 
           {/* Right — form */}
-          <div className="bg-surface-container-low h-fit ghost-border rounded-xl p-8 relative overflow-hidden">
+          <div className="bg-surface-container-low ghost-border rounded-xl p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
 
             {sent ? (

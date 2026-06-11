@@ -48,47 +48,37 @@ const experiences: ExperienceEntry[] = [
 ];
 
 const techGrid: TechChipData[] = [
-  { icon: 'data_object', label: 'React', color: 'primary' },
-  { icon: 'web', label: 'Next.js', color: 'secondary' },
-  { icon: 'phone_iphone', label: 'React Native', color: 'tertiary' },
-
-  { icon: 'code', label: 'TypeScript', color: 'primary' },
-  { icon: 'terminal', label: 'Node.js', color: 'secondary' },
-  { icon: 'integration_instructions', label: 'PHP / Laravel', color: 'tertiary' },
-
-  { icon: 'database', label: 'PostgreSQL', color: 'primary' },
-  { icon: 'storage', label: 'MySQL', color: 'secondary' },
-  { icon: 'deployed_code', label: 'Docker', color: 'tertiary' },
-
-  { icon: 'dns', label: 'Linux / VPS', color: 'primary' },
-  { icon: 'layers', label: 'Tailwind CSS', color: 'secondary' },
-  { icon: 'palette', label: 'UX / UI Design', color: 'tertiary' },
-
-  { icon: 'sports_esports', label: 'Unity', color: 'primary' },
-  { icon: 'code_blocks', label: 'C#', color: 'secondary' },
-  { icon: 'memory', label: 'C++', color: 'tertiary' },
-  { icon: 'cloud', label: 'Cloudflare', color: 'primary' },
-  { icon: 'api', label: 'APIs REST', color: 'secondary' },
-  { icon: 'hub', label: 'GraphQL', color: 'tertiary' },
+  { icon: 'javascript',    label: 'JavaScript',    color: 'primary'   },
+  { icon: 'data_object',   label: 'React / Next.js', color: 'secondary' },
+  { icon: 'terminal',      label: 'Node.js',        color: 'tertiary'  },
+  { icon: 'code',          label: 'Python',         color: 'primary'   },
+  { icon: 'videogame_asset', label: 'Unity / C#',   color: 'secondary' },
+  { icon: 'phone_iphone',  label: 'Flutter',        color: 'tertiary'  },
+  { icon: 'database',      label: 'PostgreSQL',     color: 'primary'   },
+  { icon: 'cloud',         label: 'AWS / GCP',      color: 'secondary' },
+  { icon: 'palette',       label: 'Figma / UI',     color: 'tertiary'  },
+  { icon: 'layers',        label: 'Tailwind CSS',   color: 'primary'   },
+  { icon: 'deployed_code', label: 'Docker',         color: 'secondary' },
+  { icon: 'hub',           label: 'GraphQL',        color: 'tertiary'  },
 ];
 
 // ─── Color maps ───────────────────────────────────────────────────────────────
 const colorText: Record<AccentColor, string> = {
-  primary: 'text-primary',
+  primary:   'text-primary',
   secondary: 'text-secondary',
-  tertiary: 'text-tertiary',
+  tertiary:  'text-tertiary',
 };
 
 const colorBg: Record<AccentColor, string> = {
-  primary: 'bg-primary',
+  primary:   'bg-primary',
   secondary: 'bg-secondary',
-  tertiary: 'bg-tertiary',
+  tertiary:  'bg-tertiary',
 };
 
 const dotGlow: Record<AccentColor, string> = {
-  primary: 'shadow-[0_0_15px_rgba(255,179,181,0.8)]',
+  primary:   'shadow-[0_0_15px_rgba(255,179,181,0.8)]',
   secondary: 'shadow-[0_0_15px_rgba(211,251,255,0.8)]',
-  tertiary: 'shadow-[0_0_15px_rgba(229,181,255,0.8)]',
+  tertiary:  'shadow-[0_0_15px_rgba(229,181,255,0.8)]',
 };
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -221,25 +211,26 @@ export default function ExperienceSection() {
               </span>
             </div>
             <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight text-on-surface">
-              Experiência prática em{' '}
+              Arquitetando{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">
-                projetos reais
-              </span>.
+                Experiências Digitais
+              </span>{' '}
+              de Ponta.
             </h1>
             <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-2xl font-light">
-              Minha experiência conecta o cuidado visual do{' '}
-              <span className="text-primary font-medium">Frontend</span>, a arquitetura consistente do{' '}
-              <span className="text-secondary font-medium">Backend</span> e a criação de jornadas digitais em{' '}
-              <span className="text-tertiary font-medium">Mobile, UI Design e produtos interativos</span>. Entre
-              interfaces, APIs e sistemas completos, desenvolvo soluções funcionais, escaláveis e alinhadas a
-              necessidades reais.
+              Com uma trajetória sólida no desenvolvimento de ecossistemas tecnológicos, minha
+              expertise transita fluidamente entre o refinamento visual do{' '}
+              <span className="text-primary font-medium">Frontend</span>, a robustez lógica do{' '}
+              <span className="text-secondary font-medium">Backend</span> e a imersão interativa de{' '}
+              <span className="text-tertiary font-medium">Mobile, Games e UI Design</span>. Cada
+              linha de código é um traço de arquitetura funcional.
             </p>
           </div>
 
           <div className="lg:col-span-5 relative">
             <div className="aspect-square rounded-lg overflow-hidden bg-surface-container-low/80 backdrop-blur-[20px] p-2 border border-outline-variant/20 relative group">
               <img
-                src="/images/experience.png"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT9rjAWe5z7RA-3zD3gbpyAHm4GtvyhGcEKokgV8BqWBr4XdL4Q2OaITpi0yAEPOotTB63ODaP2Dkah22XxLDp6m-XYewe8SGNckeesPkH4UBERni3yOfzcGfVrL2Y5wwzYmDI5XVH3tXv4FzrQPomrpBJa0LZ7X4QZiRMo2th9w7CbqGBJMFCFS6YyQhV4yeVulUlko9mKnDrR7UVZtyfvcLApAWv6cIpZmSTktC-PkAAgNiyawjbmVkj2mcN9kb5_6K2E8uSTxc0"
                 alt="Workspace de desenvolvimento"
                 className="w-full h-full object-cover object-top opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-lg"
               />

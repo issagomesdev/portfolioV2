@@ -27,7 +27,7 @@ export default function ContactSection() {
         <header className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-px bg-primary" aria-hidden="true" />
-            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Me envie uma mensagem</span>
+            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Get in touch</span>
           </div>
           <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter bg-gradient-to-r from-on-surface to-on-surface/50 bg-clip-text text-transparent">
             CONTATO<span className="text-primary">.</span>
@@ -76,7 +76,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right — form */}
-          <div className="bg-surface-container-low h-fit ghost-border rounded-xl p-8 relative overflow-hidden">
+          <div className="bg-surface-container-low ghost-border rounded-xl p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
 
             {sent ? (

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#e4e2e1",
+                        "secondary-container": "#00eefc",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#ffdada",
+                        "primary": "#ffb3b5",
+                        "surface-container-low": "#1b1c1c",
+                        "on-primary": "#680019",
+                        "on-secondary": "#00363a",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#7df4ff",
+                        "on-tertiary": "#4e0078",
+                        "inverse-surface": "#e4e2e1",
+                        "surface-bright": "#393939",
+                        "on-primary-container": "#5b0015",
+                        "tertiary-fixed-dim": "#e5b5ff",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#00686f",
+                        "primary-container": "#ff5167",
+                        "inverse-primary": "#be0036",
+                        "on-surface": "#e4e2e1",
+                        "tertiary-container": "#c365ff",
+                        "outline": "#ad8888",
+                        "outline-variant": "#5d3f40",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#ffb3b5",
+                        "surface-container-highest": "#353535",
+                        "on-tertiary-fixed-variant": "#7000a8",
+                        "on-secondary-fixed-variant": "#004f54",
+                        "on-tertiary-container": "#450069",
+                        "inverse-on-surface": "#303030",
+                        "primary-fixed-dim": "#ffb3b5",
+                        "tertiary-fixed": "#f4d9ff",
+                        "tertiary": "#e5b5ff",
+                        "surface-container": "#1f2020",
+                        "on-surface-variant": "#e6bcbd",
+                        "on-secondary-fixed": "#002022",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed": "#40000c",
+                        "on-tertiary-fixed": "#30004b",
+                        "on-error": "#690005",
+                        "surface": "#131313",
+                        "secondary": "#d3fbff",
+                        "secondary-fixed-dim": "#00dbe9",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed-variant": "#920027"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(27, 28, 28, 0.8);
+            backdrop-filter: blur(20px);
+        }
+
+        .glow-line {
+            background: linear-gradient(to bottom, transparent, #ffb3b5 15%, #e5b5ff 50%, #ffb3b5 85%, transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-background font-body selection:bg-primary-container selection:text-white">
+   
+    <main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <!-- Intro Section: Asymmetric Editorial Layout -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-start">
+            <div class="lg:col-span-7">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-12 h-[1px] bg-primary"></span>
+                    <span class="font-label text-primary uppercase tracking-[0.2em] text-xs font-bold">Histórico
+                        Profissional</span>
+                </div>
+                <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight">
+                    Arquitetando <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">Experiências
+                        Digitais</span> de Ponta.
+                </h1>
+                <p class="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-2xl font-light">
+                    Com uma trajetória sólida no desenvolvimento de ecossistemas tecnológicos, minha expertise transita
+                    fluidamente entre o refinamento visual do <span class="text-primary font-medium">Frontend</span>, a
+                    robustez lógica do <span class="text-secondary font-medium">Backend</span> e a imersão interativa de
+                    <span class="text-tertiary font-medium">Mobile, Games e UI Design</span>. Cada linha de código é um
+                    traço de arquitetura funcional.
+                </p>
+            </div>
+            <div class="lg:col-span-5 relative">
+                <div
+                    class="aspect-square rounded-lg overflow-hidden glass-card p-2 border border-outline-variant/20 relative group">
+                    <img class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-lg"
+                        data-alt="Modern dark workspace with neon pink and violet lighting reflecting on glass surfaces and mechanical keyboard"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT9rjAWe5z7RA-3zD3gbpyAHm4GtvyhGcEKokgV8BqWBr4XdL4Q2OaITpi0yAEPOotTB63ODaP2Dkah22XxLDp6m-XYewe8SGNckeesPkH4UBERni3yOfzcGfVrL2Y5wwzYmDI5XVH3tXv4FzrQPomrpBJa0LZ7X4QZiRMo2th9w7CbqGBJMFCFS6YyQhV4yeVulUlko9mKnDrR7UVZtyfvcLApAWv6cIpZmSTktC-PkAAgNiyawjbmVkj2mcN9kb5_6K2E8uSTxc0" />
+                    <div class="absolute inset-0 bg-gradient-to-tr from-surface via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 p-6 glass-card border border-outline-variant/10">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p
+                                    class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">
+                                    Status do Sistema</p>
+                                <p class="font-headline text-lg font-bold text-primary">Operacional</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-headline text-3xl font-bold text-on-surface">5+ ANOS</p>
+                                <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">De
+                                    atuação fullstack</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative Glow -->
+                <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+            </div>
+        </section>
+        <!-- Stack Icons: Modular Tech Grid -->
+        <section class="mb-32">
+            <div class="mb-12">
+                <h2 class="font-headline text-3xl font-bold mb-2">Stack Tecnológica</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-primary to-transparent"></div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <!-- Tech Chip -->
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="javascript">javascript</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">JavaScript</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="data_object">data_object</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">React /
+                        Next.js</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="terminal">terminal</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Node.js</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="code">code</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Python</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl"
+                            data-icon="videogame_asset">videogame_asset</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Unity / C#</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="phone_iphone">phone_iphone</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Flutter</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="database">database</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">PostgreSQL</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="cloud">cloud</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">AWS / GCP</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="palette">palette</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Figma / UI</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="layers">layers</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Tailwind
+                        CSS</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="deployed_code">deployed_code</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Docker</span>
+                </div>
+                <div
+                    class="group surface-container-low p-6 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-high transition-all duration-300 border border-transparent hover:border-primary/20">
+                    <div
+                        class="w-12 h-12 flex items-center justify-center text-tertiary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl" data-icon="hub">hub</span>
+                    </div>
+                    <span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">GraphQL</span>
+                </div>
+            </div>
+        </section>
+        <!-- Timeline: Professional & Educational -->
+        <section>
+            <div class="mb-16">
+                <h2 class="font-headline text-3xl font-bold mb-2">Jornada Evolutiva</h2>
+                <div class="h-1 w-20 bg-gradient-to-r from-tertiary to-transparent"></div>
+            </div>
+            <div class="relative space-y-12">
+                <!-- Vertical Line -->
+                <div
+                    class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] glow-line -translate-x-1/2 hidden md:block">
+                </div>
+                <div class="absolute left-4 top-0 bottom-0 w-[2px] glow-line md:hidden"></div>
+                <!-- Timeline Item 1 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 group">
+                    <div class="md:text-right flex flex-col justify-center order-2 md:order-1 ml-12 md:ml-0">
+                        <span class="font-label text-primary text-sm font-bold tracking-widest mb-2">2023 -
+                            PRESENTE</span>
+                        <h3 class="font-headline text-2xl font-bold mb-3">Sênior Fullstack Engineer</h3>
+                        <p class="text-on-surface-variant font-light mb-4">Liderança técnica no desenvolvimento de
+                            plataformas SaaS escaláveis, utilizando arquitetura de microserviços e foco em performance
+                            web.</p>
+                        <div class="flex flex-wrap gap-2 md:justify-end">
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-primary">#
+                                React</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-primary">#
+                                Node.js</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-primary">#
+                                AWS</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface shadow-[0_0_15px_rgba(255,179,181,0.8)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform">
+                    </div>
+                    <div class="order-1 md:order-2"></div>
+                </div>
+                <!-- Timeline Item 2 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 group">
+                    <div class="order-1 md:order-1"></div>
+                    <div class="flex flex-col justify-center ml-12 md:ml-0 order-2 md:order-2">
+                        <span class="font-label text-tertiary text-sm font-bold tracking-widest mb-2">2021 - 2023</span>
+                        <h3 class="font-headline text-2xl font-bold mb-3">Game Developer &amp; UI Artist</h3>
+                        <p class="text-on-surface-variant font-light mb-4">Desenvolvimento de jogos independentes com
+                            foco em mecânicas sistêmicas e interface de usuário com alta fidelidade visual.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-tertiary">#
+                                Unity</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-tertiary">#
+                                C#</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-tertiary">#
+                                Figma</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-tertiary border-4 border-surface shadow-[0_0_15px_rgba(229,181,255,0.8)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform">
+                    </div>
+                </div>
+                <!-- Timeline Item 3 -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 group">
+                    <div class="md:text-right flex flex-col justify-center order-2 md:order-1 ml-12 md:ml-0">
+                        <span class="font-label text-secondary text-sm font-bold tracking-widest mb-2">2019 -
+                            2021</span>
+                        <h3 class="font-headline text-2xl font-bold mb-3">Product Designer</h3>
+                        <p class="text-on-surface-variant font-light mb-4">Criação de design systems modulares e fluxos
+                            de usuário centrados na conversão para aplicativos mobile de alta escala.</p>
+                        <div class="flex flex-wrap gap-2 md:justify-end">
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-secondary">#
+                                UX/UI</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-secondary">#
+                                Mobile</span>
+                            <span
+                                class="bg-surface-container-highest px-3 py-1 text-[10px] font-label uppercase tracking-wider text-secondary">#
+                                Prototyping</span>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 top-1 w-4 h-4 rounded-full bg-secondary border-4 border-surface shadow-[0_0_15px_rgba(211,251,255,0.8)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform">
+                    </div>
+                    <div class="order-1 md:order-2"></div>
+                </div>
+                <!-- Education Highlight -->
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 group">
+                    <div class="order-1 md:order-1"></div>
+                    <div class="flex flex-col justify-center ml-12 md:ml-0 order-2 md:order-2">
+                        <div class="glass-card p-6 border border-primary/10 rounded-lg">
+                            <span class="material-symbols-outlined text-primary mb-4" data-icon="school">school</span>
+                            <h3 class="font-headline text-xl font-bold mb-1">Engenharia de Software</h3>
+                            <p class="text-on-surface-variant text-sm font-medium mb-4">Universidade de Tecnologia
+                                Aplicada</p>
+                            <p class="text-xs text-on-surface-variant/70 leading-relaxed font-light">Especialização em
+                                Computação Gráfica e Algoritmos de Otimização. Graduação com Honras.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute left-4 md:left-1/2 top-8 w-4 h-4 rounded-full bg-primary border-4 border-surface -translate-x-1/2 z-10">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

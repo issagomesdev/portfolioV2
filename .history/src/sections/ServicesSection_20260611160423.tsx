@@ -111,11 +111,12 @@ export default function ServicesSection() {
         <div className="mt-24 p-12 bg-gradient-to-br from-surface-container-low to-surface-container-lowest rounded-xl border border-outline-variant/10 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgb(var(--c-primary)/0.05),transparent)] pointer-events-none" aria-hidden="true" />
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-6 text-on-surface">
-            Seu próximo produto digital {' '}
-            <span className="text-primary italic">começa aqui</span>.
+            Pronto para transformar sua ideia em um {' '}
+            <span className="text-primary italic">produto digital</span>?
           </h2>
           <p className="text-on-surface-variant max-w-xl mx-auto mb-10 font-body">
-            De interfaces elegantes a backends sólidos, desenvolvo soluções sob medida para tirar ideias do papel, otimizar processos e criar experiências digitais preparadas para crescer.
+            Minha agenda está aberta para novos desafios técnicos. Vamos conversar sobre como posso elevar sua
+            infraestrutura digital.
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}

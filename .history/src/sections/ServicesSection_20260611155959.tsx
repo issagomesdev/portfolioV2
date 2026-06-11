@@ -30,7 +30,7 @@ export default function ServicesSection() {
             </span>
           </div>
           <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-6 bg-gradient-to-r from-primary to-tertiary-fixed-dim bg-clip-text text-transparent">
-           Interfaces elegantes. <br /> Backends sólidos. <br /> Produtos escaláveis.
+           Interfaces elegantes. <br /> Backends sólidos. <br /> PProdutos escaláveis.
           </h1>
           <p className="text-on-surface-variant max-w-2xl text-lg leading-relaxed font-body">
             Desenvolvo aplicações web, mobile, APIs e automações com foco em UX/UI, performance, segurança e arquitetura limpa, criando soluções que não apenas parecem boas, mas funcionam bem.
@@ -111,11 +111,12 @@ export default function ServicesSection() {
         <div className="mt-24 p-12 bg-gradient-to-br from-surface-container-low to-surface-container-lowest rounded-xl border border-outline-variant/10 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgb(var(--c-primary)/0.05),transparent)] pointer-events-none" aria-hidden="true" />
           <h2 className="font-headline text-3xl md:text-4xl font-bold mb-6 text-on-surface">
-            Seu próximo produto digital {' '}
-            <span className="text-primary italic">começa aqui</span>.
+            Pronto para iniciar seu próximo{' '}
+            <span className="text-primary italic">projeto disruptivo</span>?
           </h2>
           <p className="text-on-surface-variant max-w-xl mx-auto mb-10 font-body">
-            De interfaces elegantes a backends sólidos, desenvolvo soluções sob medida para tirar ideias do papel, otimizar processos e criar experiências digitais preparadas para crescer.
+            Minha agenda está aberta para novos desafios técnicos. Vamos conversar sobre como posso elevar sua
+            infraestrutura digital.
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}

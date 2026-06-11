@@ -44,7 +44,7 @@ export default function ProjectsSection() {
         <header className="mb-16">
           <div className="flex items-center gap-3 mb-4">
             <span className="w-12 h-px bg-primary" aria-hidden="true" />
-            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Meus projetos</span>
+            <span className="font-label text-primary tracking-[0.2em] text-xs uppercase">Curated Works</span>
           </div>
           <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tighter mb-8 bg-gradient-to-r from-on-surface to-on-surface/50 bg-clip-text text-transparent">
             PORTFÓLIO<span className="text-primary">.</span>

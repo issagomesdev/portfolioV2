@@ -63,13 +63,6 @@ const techGrid: TechChipData[] = [
   { icon: 'dns', label: 'Linux / VPS', color: 'primary' },
   { icon: 'layers', label: 'Tailwind CSS', color: 'secondary' },
   { icon: 'palette', label: 'UX / UI Design', color: 'tertiary' },
-
-  { icon: 'sports_esports', label: 'Unity', color: 'primary' },
-  { icon: 'code_blocks', label: 'C#', color: 'secondary' },
-  { icon: 'memory', label: 'C++', color: 'tertiary' },
-  { icon: 'cloud', label: 'Cloudflare', color: 'primary' },
-  { icon: 'api', label: 'APIs REST', color: 'secondary' },
-  { icon: 'hub', label: 'GraphQL', color: 'tertiary' },
 ];
 
 // ─── Color maps ───────────────────────────────────────────────────────────────
@@ -223,17 +216,13 @@ export default function ExperienceSection() {
             <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight text-on-surface">
               Experiência prática em{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">
-                projetos reais
-              </span>.
+                projetos
+              </span>{' '}
+              reais.
             </h1>
-            <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-2xl font-light">
-              Minha experiência conecta o cuidado visual do{' '}
-              <span className="text-primary font-medium">Frontend</span>, a arquitetura consistente do{' '}
-              <span className="text-secondary font-medium">Backend</span> e a criação de jornadas digitais em{' '}
-              <span className="text-tertiary font-medium">Mobile, UI Design e produtos interativos</span>. Entre
-              interfaces, APIs e sistemas completos, desenvolvo soluções funcionais, escaláveis e alinhadas a
-              necessidades reais.
-            </p>
+           <p className="max-w-3xl text-lg md:text-xl leading-relaxed text-muted-foreground">
+  Minha trajetória combina desenvolvimento <span className="text-primary font-medium">frontend</span>, <span className="text-secondary font-medium">backend</span>,  <span className="text-tertiary font-medium">mobile, games e UI Design</span> em projetos que exigem performance, usabilidade e estrutura sólida. De landing pages e dashboards a APIs, sistemas completos e aplicativos, transformo necessidades reais em soluções digitais funcionais, escaláveis e bem apresentadas.
+</p>
           </div>
 
           <div className="lg:col-span-5 relative">

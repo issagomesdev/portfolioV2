@@ -63,13 +63,6 @@ const techGrid: TechChipData[] = [
   { icon: 'dns', label: 'Linux / VPS', color: 'primary' },
   { icon: 'layers', label: 'Tailwind CSS', color: 'secondary' },
   { icon: 'palette', label: 'UX / UI Design', color: 'tertiary' },
-
-  { icon: 'sports_esports', label: 'Unity', color: 'primary' },
-  { icon: 'code_blocks', label: 'C#', color: 'secondary' },
-  { icon: 'memory', label: 'C++', color: 'tertiary' },
-  { icon: 'cloud', label: 'Cloudflare', color: 'primary' },
-  { icon: 'api', label: 'APIs REST', color: 'secondary' },
-  { icon: 'hub', label: 'GraphQL', color: 'tertiary' },
 ];
 
 // ─── Color maps ───────────────────────────────────────────────────────────────

@@ -64,7 +64,7 @@ const techGrid: TechChipData[] = [
   { icon: 'layers', label: 'Tailwind CSS', color: 'secondary' },
   { icon: 'palette', label: 'UX / UI Design', color: 'tertiary' },
 
-  { icon: 'sports_esports', label: 'Unity', color: 'primary' },
+    { icon: 'sports_esports', label: 'Unity', color: 'primary' },
   { icon: 'code_blocks', label: 'C#', color: 'secondary' },
   { icon: 'memory', label: 'C++', color: 'tertiary' },
   { icon: 'cloud', label: 'Cloudflare', color: 'primary' },

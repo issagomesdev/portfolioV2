@@ -139,6 +139,18 @@ body {
   box-shadow: 0 0 16px rgb(183 92 255 / 0.25), 0 0 8px rgb(255 143 163 / 0.45);
 }
 
+/* ── Glow line (Experience timeline vertical bar) ───────────────────────── */
+.glow-line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(var(--c-primary)) 15%,
+    rgb(var(--c-tertiary)) 50%,
+    rgb(var(--c-primary)) 85%,
+    transparent
+  );
+}
+
 /* ── Selection ──────────────────────────────────────────────────────────── */
 ::selection {
   background: rgb(var(--c-primary-container) / 0.4);

@@ -76,7 +76,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right — form */}
-          <div className="bg-surface-container-low h-fit ghost-border rounded-xl p-8 relative overflow-hidden">
+          <div className="bg-surface-container-low ghost-border rounded-xl p-8 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 blur-3xl rounded-full pointer-events-none" aria-hidden="true" />
 
             {sent ? (
