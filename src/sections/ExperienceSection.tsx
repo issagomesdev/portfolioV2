@@ -17,35 +17,132 @@ interface TechChipData {
 }
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
+
 const experiences: ExperienceEntry[] = [
   {
-    period: '2024 — PRESENTE',
-    role: 'Fullstack Developer',
+    period: '2026',
+    role: 'Desenvolvedora Full Stack & Mobile — HealthMind',
     description:
-      'Desenvolvimento de aplicações web e mobile para clientes nacionais e internacionais. Foco em React, Next.js, Node.js e PostgreSQL com design orientado a dados.',
-    tags: ['React', 'Next.js', 'Node.js', 'TypeScript'],
+      'Desenvolvimento de um ecossistema de saúde mental vencedor de hackathon, composto por aplicativo mobile, landing page e API REST. Atuei com arquitetura modular, autenticação JWT, perfis por papel, PostgreSQL, Prisma, Docker, Swagger, CI e testes automatizados.',
+    tags: [
+      'React Native',
+      'Expo',
+      'React',
+      'Node.js',
+      'Fastify',
+      'TypeScript',
+      'PostgreSQL',
+      'Docker',
+    ],
     color: 'primary',
     align: 'left',
   },
   {
-    period: '2022 — 2024',
-    role: 'Frontend Engineer',
+    period: 'JUL. 2024 — NOV. 2024',
+    role: 'Desenvolvedora Full Stack — Projeto Acadêmico Biko',
     description:
-      'Liderança técnica do frontend em produto SaaS B2B. Implementação de design system, redução de 40% no tempo de carregamento e migração de CRA para Vite.',
-    tags: ['React', 'Vite', 'Figma', 'Storybook'],
+      'Desenvolvimento de uma plataforma social para conectar clientes e prestadores de serviços. Implementei frontend em Next.js e API Laravel com autenticação, publicações, seguidores, avaliações, coleções, bloqueios, notificações, chat em tempo real, Swagger, Docker e testes automatizados.',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Laravel',
+      'PHP',
+      'WebSocket',
+      'Docker',
+      'Swagger',
+      'Testing',
+    ],
     color: 'tertiary',
     align: 'right',
   },
   {
-    period: '2020 — 2022',
-    role: 'Junior Developer',
+    period: '2023 — 2025',
+    role: 'Desenvolvedora Full Stack — Litoral na Mesa',
     description:
-      'Desenvolvimento de landing pages e e-commerces. Primeiro contato com React e metodologias ágeis. Participação em projetos para grandes marcas nacionais.',
-    tags: ['JavaScript', 'React', 'SASS', 'Scrum'],
+      'Atuação recorrente na evolução de um ecossistema de delivery, com manutenção corretiva e evolutiva em aplicações Electron, Angular e Node.js, além de três meses de manutenção no painel administrativo dos restaurantes parceiros desenvolvido em CodeIgniter e PHP. Posteriormente, reconstruí do zero a plataforma web com Next.js e suporte a PWA e desenvolvi um sistema Laravel para onboarding e gestão operacional de restaurantes, realizando entregas incrementais, correções, deploys e homologação com os responsáveis pelo produto.',
+    tags: [
+      'Next.js',
+      'TypeScript',
+      'Node.js',
+      'Electron',
+      'Angular',
+      'PWA',
+      'Laravel',
+      'CodeIgniter',
+      'PHP',
+    ],
+    color: 'secondary',
+    align: 'left',
+  },
+  {
+    period: 'FEV. 2024 — MAR. 2024',
+    role: 'Desenvolvedora Full Stack Freelancer — Listinha Vip',
+    description:
+      'Desenvolvimento autônomo de uma plataforma para gestão de eventos, com confirmação de presença, acompanhantes, check-in e listas de convidados. Implementei painel administrativo, autenticação, controle de acesso por papéis, filtros, exportações e regras configuráveis.',
+    tags: ['Laravel', 'PHP', 'JavaScript', 'MySQL'],
+    color: 'primary',
+    align: 'right',
+  },
+  {
+    period: 'NOV. 2023 — JAN. 2024',
+    role: 'Desenvolvedora Full Stack Freelancer — Smart Option',
+    description:
+      'Desenvolvimento de uma solução integrada com bot para Telegram, API REST e painel administrativo. Implementei fluxos financeiros, assinaturas, rentabilidade diária, renovação automática, rede de afiliados multinível, autenticação JWT, cron jobs e integração com o PagBank.',
+    tags: [
+      'Node.js',
+      'TypeScript',
+      'Next.js',
+      'Telegram Bot',
+      'PagBank API',
+    ],
+    color: 'tertiary',
+    align: 'left',
+  },
+  {
+    period: 'OUT. 2023 — NOV. 2023',
+    role: 'Desenvolvedora Full Stack Freelancer — PhotoX',
+    description:
+      'Desenvolvimento simultâneo de uma plataforma de visualização geoespacial e sua API stateless. Implementei globo 3D com CesiumJS, processamento de coordenadas GeoJSON, subdivisão de polígonos em regiões hexagonais e geração de lotes geográficos de 10 × 10 metros.',
+    tags: [
+      'Node.js',
+      'Laravel',
+      'CesiumJS',
+      'Turf.js',
+      'JavaScript',
+      'Jest',
+    ],
+    color: 'secondary',
+    align: 'right',
+  },
+  {
+    period: 'FEV. 2023 — AGO. 2023',
+    role: 'Desenvolvedora Full Stack PJ — Prefeitura de Sairé',
+    description:
+      'Desenvolvimento de um portal institucional com CMS personalizado para gestão de páginas, notícias, galerias, menus e mídias. Implementei painel administrativo, usuários e permissões, auditoria de ações, pesquisa global e publicação dinâmica de conteúdo.',
+    tags: ['Laravel', 'PHP', 'JavaScript', 'MySQL'],
+    color: 'primary',
+    align: 'left',
+  },
+  {
+    period: '2022 — 2023',
+    role: 'Desenvolvedora Full Stack Freelancer — SJC Sistemas',
+    description:
+      'Desenvolvimento integral do SJC Cemitério, assumindo arquitetura, banco de dados, backend e frontend. Implementei gestão hierárquica de espaços funerários, registros de óbitos, transferências, permissões, auditoria, relatórios, exportações e mapa interativo.',
+    tags: ['Laravel', 'PHP', 'JavaScript', 'MySQL'],
+    color: 'tertiary',
+    align: 'right',
+  },
+  {
+    period: '2021 — 2022',
+    role: 'Desenvolvedora Full Stack Freelancer — SJC Sistemas',
+    description:
+      'Desenvolvimento integral do SJC Educacional como única desenvolvedora, abrangendo arquitetura, banco de dados, backend e frontend. Implementei módulos acadêmicos e administrativos para alunos, turmas, diário de classe, transporte, biblioteca, estoque, calendário e relatórios.',
+    tags: ['Laravel', 'PHP', 'JavaScript', 'MySQL'],
     color: 'secondary',
     align: 'left',
   },
 ];
+
 
 const techGrid: TechChipData[] = [
   { icon: 'data_object', label: 'React', color: 'primary' },
@@ -187,13 +284,13 @@ function EducationCard() {
             school
           </span>
           <h3 className="font-headline text-xl font-bold mb-1 text-on-surface">
-            Engenharia de Software
+            Análise e Desenvolvimento de Sistemas
           </h3>
           <p className="text-on-surface-variant text-sm font-medium mb-4">
-            Universidade de Tecnologia Aplicada
+            UNINASSAU (2022 — 2025)
           </p>
           <p className="text-xs text-on-surface-variant/70 leading-relaxed font-light">
-            Especialização em Computação Gráfica e Algoritmos de Otimização. Graduação com Honras.
+            Formação técnica focada em desenvolvimento de software, abrangendo desde lógica de programação e algoritmos até arquitetura de sistemas, bancos de dados, segurança e metodologias ágeis. O curso proporcionou uma base sólida para atuação fullstack, com ênfase em boas práticas, performance e soluções alinhadas a necessidades reais.
           </p>
         </div>
       </div>

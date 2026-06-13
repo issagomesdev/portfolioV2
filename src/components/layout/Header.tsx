@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import Wordmark from '@/components/brand/Wordmark';
 import { navItems } from '@/data/navItems';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useTheme } from '@/hooks/useTheme';
@@ -11,11 +10,21 @@ export default function Header() {
   const activeSection = useActiveSection(sectionIds);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const scrollTo = useCallback((sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-    setMobileOpen(false);
-  }, []);
+const scrollTo = useCallback((sectionId: string) => {
+  const el = document.getElementById(sectionId);
+
+  if (el) {
+    const offset = 40;
+    const elementTop = el.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementTop - offset,
+      behavior: 'smooth',
+    });
+  }
+
+  setMobileOpen(false);
+}, []);
 
   return (
     <header className="fixed top-0 w-full z-50 glass-header shadow-[0_0_40px_rgba(255,45,85,0.04)]">

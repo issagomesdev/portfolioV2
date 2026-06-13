@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { ABOUT_LAYOUT } from './src/lib/aboutLayout';
 
 export default {
   darkMode: 'class',
@@ -70,6 +71,13 @@ export default {
       },
       animation: {
         'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
+      screens: {
+        /* About section breakpoints — driven by src/lib/aboutLayout.ts.
+           Use these variants (about-tablet:, about-desktop:) in JSX when
+           you need Tailwind responsive classes tied to the about layout. */
+        'about-tablet':  `${ABOUT_LAYOUT.tabletMin}px`,
+        'about-desktop': `${ABOUT_LAYOUT.desktopMin}px`,
       },
     },
   },

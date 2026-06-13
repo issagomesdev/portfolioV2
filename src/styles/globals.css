@@ -151,6 +151,99 @@ body {
   );
 }
 
+/* ── About section layout ────────────────────────────────────────────────── */
+/*
+  All values mirror src/lib/aboutLayout.ts — update both files together.
+  The @media breakpoints below must match tabletMin / desktopMin.
+
+  Semantic class map:
+    .about-layout    — outer container (flex-col mobile, block+float tablet, grid desktop)
+    .about-header    — badge + h2 section title
+    .about-p1        — intro paragraph; always full-width
+    .about-image     — ProfileImage wrapper (photo + stats); float-left on tablet
+    .about-text-rest — remaining paragraphs + skills + CTA
+    .about-skills    — skills grid inside .about-text-rest
+    .about-cta       — CTA buttons inside .about-text-rest
+
+  Stats cards are always rendered inside ProfileImage (.about-image) so they
+  appear directly below the photo at every viewport size — no show/hide logic.
+*/
+
+/* Spacing tokens — referenced by @media blocks below */
+:root {
+  --about-image-width:     44%;
+  --about-image-max-width: 400px;
+  --about-image-text-gap:  2rem;
+  --about-image-bottom:    1.5rem;
+  --about-section-gap:     2rem;
+  --about-paragraph-gap:   1.5rem;
+  --about-desktop-cols:    2fr 3fr;
+  --about-desktop-col-gap: 3.5rem;
+  --about-desktop-row-gap: 2rem;
+}
+
+/* ── Float layout — tablet (640px – 1020px) ─────────────────────────────── */
+/* tabletMin = 640px, desktopMin − 1 = 1020px; match ABOUT_LAYOUT            */
+@media (min-width: 640px) and (max-width: 1020px) {
+  /* Switch from flex (mobile default) to block so CSS float works */
+  .about-layout { display: block; }
+
+  /* Space between the stacked full-width blocks and the float zone */
+  .about-header { margin-bottom: var(--about-section-gap); }
+  .about-p1     { margin-bottom: var(--about-section-gap); }
+
+  /*
+    Float the image left. The floated element includes both the photo and the
+    stat cards below it — the float boundary equals the full visual height of
+    the image column (photo + stats). Text wraps beside it and automatically
+    continues at full width once the float ends.
+  */
+  .about-image {
+    float: left;
+    width: var(--about-image-width);
+    max-width: var(--about-image-max-width);
+    margin-right: var(--about-image-text-gap);
+    margin-bottom: var(--about-image-bottom);
+  }
+
+  /*
+    Override flex so children are plain block elements whose text lines are
+    pushed aside by the float. When the float ends, lines widen to full width
+    automatically — native CSS float behaviour, no JavaScript needed.
+  */
+  .about-text-rest { display: block; }
+  .about-text-rest > * + * { margin-top: var(--about-paragraph-gap); }
+
+  /*
+    Inner flex/grid containers (.about-skills, .about-cta) are not affected
+    by outer floats the same way inline text is. overflow:hidden creates a
+    block formatting context (BFC) that positions them beside the float
+    without overlapping, while still allowing them to expand to full width
+    once the float zone has ended.
+  */
+  .about-skills,
+  .about-cta { overflow: hidden; }
+}
+
+/* ── Desktop — CSS Grid layout (≥ desktopMin) ───────────────────────────── */
+/* desktopMin = 1021px; match ABOUT_LAYOUT                                   */
+@media (min-width: 1021px) {
+  .about-layout {
+    display: grid;
+    grid-template-columns: var(--about-desktop-cols);
+    column-gap: var(--about-desktop-col-gap);
+    row-gap: var(--about-desktop-row-gap);
+  }
+
+  /* col-1: image (photo + stats) spans all text rows to fill the left column */
+  .about-image     { grid-column: 1; grid-row: 1 / span 3; align-self: start; }
+
+  /* col-2: header → p1 → rest, stacked vertically */
+  .about-header    { grid-column: 2; grid-row: 1; align-self: start; }
+  .about-p1        { grid-column: 2; grid-row: 2; align-self: start; }
+  .about-text-rest { grid-column: 2; grid-row: 3; align-self: start; }
+}
+
 /* ── Selection ──────────────────────────────────────────────────────────── */
 ::selection {
   background: rgb(var(--c-primary-container) / 0.4);
