@@ -11,6 +11,31 @@ body {
   min-height: 100vh;
 }
 
+/* ── Section & Hero layout tokens ───────────────────────────────────────── */
+/*
+  clamp(min, fluid, max) keeps section heights and spacing bounded between a
+  floor and a ceiling instead of scaling 1:1 with viewport height. Without
+  this, tall/narrow displays (e.g. Surface Laptop Studio 2, 1600x2400) blow
+  up `min-h-screen`/`vh`-based layouts into huge empty sections. The fluid
+  middle term still lets normal desktops look full and "Desktop M"-like.
+*/
+:root {
+  --section-min-h:  clamp(40rem, 90svh, 56rem);
+  --section-py:      clamp(4rem, 8vw, 7rem);
+  --hero-pt:         clamp(7rem, 12vh, 10rem);
+  --hero-pb:         clamp(4rem, 8vh, 7rem);
+  /*
+    Fixed, not fluid: the badge + h1 offset from the content wrapper's top
+    is built from constant rem spacing (badge height/margins, fixed h1
+    font-size from `laptop:` up), so it doesn't change with viewport width
+    or height. A constant here is what makes the console land on the
+    "Fullstack" headline on every desktop size instead of drifting.
+  */
+  --console-top:     -2.5rem;
+  --console-right:   clamp(2rem, 0vw, 10rem);
+  --stack-bar-py:    clamp(1.5rem, 3vw, 2.5rem);
+}
+
 /* ── Material Symbols icon rendering ───────────────────────────────────── */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -255,6 +280,46 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Scrollbar styling ──────────────────────────────────────────────────── */
+/* Firefox: scrollbar-width/scrollbar-color inherit, so setting them on html
+   covers the page and every scrollable container (modals, cards, sections). */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-primary) / 0.45) rgb(var(--c-surface-container-low) / 0.4);
+}
+
+/* WebKit/Chromium */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--c-surface-container-low) / 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--c-primary) / 0.55),
+    rgb(var(--c-primary-container) / 0.4)
+  );
+  border-radius: 999px;
+  border: 2px solid rgb(var(--c-surface) / 0.85);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--c-primary) / 0.85),
+    rgb(var(--c-primary-container) / 0.7)
+  );
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* ── Cursor blink (CodeConsole) ─────────────────────────────────────────── */
 @keyframes cursor-blink {
   0%, 100% { opacity: 1; }
@@ -262,4 +327,117 @@ html {
 }
 .cursor-blink {
   animation: cursor-blink 0.9s step-start infinite;
+}
+
+/* ── Section entrance reveal — shared by Hero, About, and future sections ── */
+/*
+  Three states, driven by `useInViewAnimation`'s `revealState` + the
+  `revealClass()` helper (`@/lib/reveal`) — never toggled as one class:
+
+    {base}-hidden   static "about to enter" look, no animation running.
+                     Applied the instant a section leaves the viewport, so
+                     re-entering never shows a flash of old fully-visible
+                     content before the reset kicks in.
+    {base}          ("entering") runs the keyframe once, hidden → visible.
+    {base}-visible   static fully-revealed look, held once the cascade settles.
+
+  Swapping classes — rather than toggling one class on/off, or replaying via
+  a JS `animation:none` + reflow hack — is what makes the keyframe restart
+  correctly every single re-entry: removing `{base}` during `hidden` and
+  re-adding it later is a fresh application as far as the browser/CSS engine
+  is concerned, so it restarts from its delay with zero JS bookkeeping.
+
+  Only opacity/transform/filter are animated (no layout properties), so
+  nothing shifts once an element settles into its final position — the
+  element keeps occupying its normal box the whole time, just invisible.
+*/
+@keyframes section-fade-up {
+  from { opacity: 0; transform: translateY(18px);             filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);                filter: blur(0); }
+}
+
+@keyframes section-fade-left {
+  from { opacity: 0; transform: translateX(-28px);            filter: blur(8px); }
+  to   { opacity: 1; transform: translateX(0);                filter: blur(0); }
+}
+
+@keyframes section-scale-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.96); filter: blur(5px); }
+  to   { opacity: 1; transform: translateY(0) scale(1);       filter: blur(0); }
+}
+
+/* Bespoke to the Hero console: lands on rotate(3deg), matching its static `rotate-3` resting class */
+@keyframes hero-console-enter {
+  from { opacity: 0; transform: translateX(32px) translateY(12px) rotate(6deg); filter: blur(8px); }
+  to   { opacity: 1; transform: translateX(0) translateY(0) rotate(3deg);       filter: blur(0); }
+}
+
+@keyframes hero-glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.08); }
+}
+
+@keyframes hero-text-glow-pulse {
+  0%, 100% { text-shadow: 0 0 20px rgb(var(--c-primary) / 0.35); }
+  50%      { text-shadow: 0 0 32px rgb(var(--c-primary) / 0.55); }
+}
+
+.section-reveal-hidden        { opacity: 0; transform: translateY(18px);             filter: blur(6px); will-change: transform, opacity, filter; }
+.section-reveal-visible       { opacity: 1; transform: translateY(0);                filter: blur(0); }
+.section-reveal                { opacity: 0; animation: section-fade-up 720ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) forwards; }
+
+.section-reveal-left-hidden   { opacity: 0; transform: translateX(-28px);            filter: blur(8px); will-change: transform, opacity, filter; }
+.section-reveal-left-visible  { opacity: 1; transform: translateX(0);                filter: blur(0); }
+.section-reveal-left           { opacity: 0; animation: section-fade-left 780ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) forwards; }
+
+.section-reveal-scale-hidden  { opacity: 0; transform: translateY(14px) scale(0.96); filter: blur(5px); will-change: transform, opacity, filter; }
+.section-reveal-scale-visible { opacity: 1; transform: translateY(0) scale(1);       filter: blur(0); }
+.section-reveal-scale          { opacity: 0; animation: section-scale-in 680ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) forwards; }
+
+/*
+  No `transform` declared on `-visible`: the console's own static `rotate-3`
+  class already provides the resting rotation once the animation lets go,
+  so there's no need to (and risk of drifting out of sync by) repeating it.
+*/
+.hero-console-enter-hidden    { opacity: 0; transform: translateX(32px) translateY(12px) rotate(6deg); filter: blur(8px); will-change: transform, opacity, filter; }
+.hero-console-enter-visible   { opacity: 1; filter: none; }
+.hero-console-enter            { opacity: 0; animation: hero-console-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 700ms) forwards; }
+
+/*
+  "Developer": fades up like any other title piece, then breathes a soft
+  glow once settled. Both effects are combined into ONE `animation`
+  declaration per state — splitting them across two separate classes (as a
+  previous version did) doesn't work, because `animation` is a single
+  shorthand property: the later class in the stylesheet wins outright
+  instead of merging, silently cancelling the entrance animation.
+*/
+.hero-title-glow-hidden  { opacity: 0; transform: translateY(18px); filter: blur(6px); will-change: transform, opacity, filter; }
+.hero-title-glow-visible { opacity: 1; transform: translateY(0);    filter: blur(0); animation: hero-text-glow-pulse 4s ease-in-out infinite; }
+.hero-title-glow {
+  opacity: 0;
+  animation:
+    section-fade-up 720ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) forwards,
+    hero-text-glow-pulse 4s ease-in-out 1.6s infinite;
+}
+
+/* Ambient background glow — slow breathing, not the default fast Tailwind pulse */
+.hero-glow-orb        { animation: hero-glow-pulse 7s ease-in-out both infinite; }
+.hero-glow-orb-delay   { animation: hero-glow-pulse 7s ease-in-out 1.4s both infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-reveal, .section-reveal-hidden,
+  .section-reveal-left, .section-reveal-left-hidden,
+  .section-reveal-scale, .section-reveal-scale-hidden,
+  .hero-console-enter, .hero-console-enter-hidden,
+  .hero-title-glow, .hero-title-glow-hidden, .hero-title-glow-visible {
+    opacity: 1;
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hero-glow-orb,
+  .hero-glow-orb-delay {
+    animation: none !important;
+  }
 }

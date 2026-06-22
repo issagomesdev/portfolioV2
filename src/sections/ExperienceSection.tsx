@@ -148,6 +148,8 @@ const techGrid: TechChipData[] = [
   { icon: 'data_object', label: 'React', color: 'primary' },
   { icon: 'web', label: 'Next.js', color: 'secondary' },
   { icon: 'phone_iphone', label: 'React Native', color: 'tertiary' },
+  { icon: 'desktop_windows', label: 'Tauri', color: 'primary' },
+  { icon: 'developer_board', label: 'Electron', color: 'secondary' },
 
   { icon: 'code', label: 'TypeScript', color: 'primary' },
   { icon: 'terminal', label: 'Node.js', color: 'secondary' },
@@ -164,6 +166,7 @@ const techGrid: TechChipData[] = [
   { icon: 'sports_esports', label: 'Unity', color: 'primary' },
   { icon: 'code_blocks', label: 'C#', color: 'secondary' },
   { icon: 'memory', label: 'C++', color: 'tertiary' },
+
   { icon: 'cloud', label: 'Cloudflare', color: 'primary' },
   { icon: 'api', label: 'APIs REST', color: 'secondary' },
   { icon: 'hub', label: 'GraphQL', color: 'tertiary' },

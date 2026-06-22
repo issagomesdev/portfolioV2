@@ -8,7 +8,7 @@ export const services: Service[] = [
     title: 'Desenvolvimento Web',
     description:
       'Sites, landing pages, dashboards e plataformas web responsivas, rápidas e otimizadas para SEO, acessibilidade e conversão. Interfaces modernas com foco em performance, usabilidade e experiência visual.',
-    tags: ['#REACT', '#NEXTJS', '#TAILWIND', '#SEO'],
+    tags: ['#REACT', '#NEXTJS', '#TAILWIND', '#TAURI', '#SEO'],
   },
   {
     id: 'mobile',
@@ -17,7 +17,7 @@ export const services: Service[] = [
     title: 'Aplicativos Mobile',
     description:
       'Aplicativos Android e iOS com navegação fluida, interfaces intuitivas e integração com APIs. Soluções pensadas para dispositivos reais, priorizando performance, estabilidade e uma boa experiência mobile.',
-    tags: ['#REACT_NATIVE', '#EXPO', '#IOS_ANDROID', '#UX_MOBILE'],
+    tags: ['#REACT_NATIVE', '#EXPO', '#TAURI', '#IOS_ANDROID', '#UX_MOBILE'],
   },
   {
     id: 'systems',

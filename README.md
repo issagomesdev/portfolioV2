@@ -164,7 +164,7 @@ Styles / Design System (theme.css + globals.css)
 <h2 id="estrutura">📁 Estrutura de Pastas</h2>
 
 ```txt
-portfolio-v2/
+portfolioV2/
 ├── public/                     # Arquivos públicos e estáticos servidos diretamente pelo navegador
 │
 ├── src/
@@ -319,8 +319,8 @@ Todas as cores são definidas como variáveis CSS no formato RGB, compatíveis c
 
 ```bash
 # Clone o repositório
-git clone https://github.com/issagomesdev/portfolio-v2
-cd portfolio-v2
+git clone https://github.com/issagomesdev/portfolioV2
+cd portfolioV2
 
 # Instale as dependências
 npm install
@@ -359,45 +359,78 @@ VITE_CV_ENDPOINT=https://script.google.com/macros/s/SEU_ID_DO_DEPLOY/exec
 |--------------------|---------------------------|------------------------------------------------------------|
 | `PORT`             | `3000`                    | Porta do servidor Vite e Docker                            |
 | `VITE_API_URL`     | `http://localhost:3333`   | URL base da API para requisições frontend                  |
-| `VITE_CV_ENDPOINT` | —                         | URL pública do Web App do Google Apps Script para CVs      |
+| `VITE_CV_ENDPOINT` | —                         | Endpoint público do Google Apps Script responsável por listar os arquivos PDF da pasta de currículos no Google Drive |
 
 > Variáveis com prefixo `VITE_` são expostas ao cliente via `import.meta.env`.
 
-### Configurando o endpoint de CVs
+### Download CV dinâmico com Google Drive
 
-O modal de Download CV consome um Google Apps Script publicado como Web App. Para configurar:
+O botão **Download CV** utiliza um endpoint público do **Google Apps Script** para listar automaticamente os arquivos PDF disponíveis em uma pasta pública do Google Drive.
 
-1. Acesse [script.google.com](https://script.google.com) e crie um novo projeto
-2. Cole o código abaixo, substituindo o `FOLDER_ID` pelo ID da sua pasta do Drive:
+Essa abordagem evita deixar os links dos currículos fixos no front-end. Sempre que um novo PDF for adicionado, removido ou substituído na pasta do Drive, o modal de seleção de CV será atualizado automaticamente.
 
-```js
-const FOLDER_ID = 'SEU_FOLDER_ID';
+#### Como configurar o Google Apps Script
 
-function doGet() {
-  const folder = DriveApp.getFolderById(FOLDER_ID);
-  const iter = folder.getFilesByType(MimeType.PDF);
-  const files = [];
-  while (iter.hasNext()) {
-    const f = iter.next();
-    files.push({
-      id: f.getId(),
-      name: f.getName(),
-      viewUrl: 'https://drive.google.com/file/d/' + f.getId() + '/view',
-      downloadUrl: 'https://drive.google.com/uc?export=download&id=' + f.getId(),
-      updatedAt: f.getLastUpdated().toISOString(),
-    });
-  }
-  files.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-  return ContentService
-    .createTextOutput(JSON.stringify({ files }))
-    .setMimeType(ContentService.MimeType.JSON);
-}
+1. Acesse [script.google.com](https://script.google.com)
+2. Clique em **Novo projeto**
+3. Apague o código inicial gerado automaticamente
+4. Copie o conteúdo do arquivo `script.gs`, localizado na raiz deste projeto
+5. Cole o código no editor do Google Apps Script
+6. Salve o projeto
+7. Clique em **Deploy**
+8. Selecione **New deployment**
+9. Em **Select type**, escolha **Web app**
+10. Configure:
+    - **Execute as:** `Me`
+    - **Who has access:** `Anyone`
+11. Clique em **Deploy**
+12. Autorize o acesso à sua conta Google
+13. Copie a URL gerada em **Web app URL**
+
+A URL gerada será parecida com:
+
+```env
+https://script.google.com/macros/s/AKfycbx.../exec
 ```
 
-3. **Implante** como Web App: *Execute como: Eu* · *Quem tem acesso: Qualquer pessoa*
-4. Copie a URL gerada e cole em `VITE_CV_ENDPOINT` no `.env`
+Adicione essa URL no arquivo `.env`:
 
-> Novos PDFs adicionados à pasta aparecem automaticamente no modal, sem nenhuma alteração no código.
+```env
+VITE_CV_ENDPOINT=https://script.google.com/macros/s/AKfycbx.../exec
+```
+
+> Importante: o valor de `VITE_CV_ENDPOINT` deve ser a URL do **Google Apps Script Web App**, não o link direto da pasta do Google Drive.
+
+#### Estrutura esperada
+
+O arquivo `script.gs` usa o ID da pasta do Google Drive para listar apenas arquivos PDF e retornar os dados em formato JSON:
+
+```json
+[
+  {
+    "id": "file-id",
+    "name": "curriculo_hayssa_fullstack.pdf",
+    "viewUrl": "https://drive.google.com/file/d/file-id/view",
+    "downloadUrl": "https://drive.google.com/uc?export=download&id=file-id",
+    "updatedAt": "2026-06-09T15:00:00.000Z"
+  }
+]
+```
+
+O front-end consome esse endpoint para montar o modal de seleção de currículo com opções como:
+
+* Backend Node.js
+* Frontend
+* Fullstack
+* PHP / Laravel
+
+#### Observações
+
+* A pasta do Google Drive precisa estar pública ou acessível pela conta usada no Apps Script.
+* O Apps Script deve estar publicado como **Web app**.
+* O endpoint deve permitir acesso para **Anyone**.
+* Apenas arquivos PDF são listados.
+* O navegador não deve fazer `fetch` direto para a pasta do Google Drive, pois o Drive bloqueia esse tipo de requisição por CORS.
 
 <h2 id="docker">🐳 Docker</h2>
 
@@ -418,8 +451,8 @@ docker compose up --build
 
 ```bash
 # Build e execução da imagem de produção
-docker build --target production -t portfolio-v2 .
-docker run -p 80:80 portfolio-v2
+docker build --target production -t portfolioV2 .
+docker run -p 80:80 portfolioV2
 ```
 
 - Stage `builder`: compila o projeto com `npm ci && npm run build`
@@ -444,8 +477,6 @@ production   →  nginx:alpine    →  serve /dist
 | `npm run preview`     | Pré-visualiza o build de produção localmente    |
 | `npm run type-check`  | Valida tipagem TypeScript sem gerar arquivos    |
 
----
-
 <h2 id="deploy">🚀 Deploy</h2>
 
 ### VPS com Docker + Nginx
@@ -453,8 +484,8 @@ production   →  nginx:alpine    →  serve /dist
 1. **Acesse o servidor e clone o repositório:**
 
 ```bash
-git clone https://github.com/issagomesdev/portfolio-v2
-cd portfolio-v2
+git clone https://github.com/issagomesdev/portfolioV2
+cd portfolioV2
 ```
 
 2. **Configure as variáveis de ambiente:**
@@ -467,8 +498,8 @@ nano .env
 3. **Gere e suba o container de produção:**
 
 ```bash
-docker build --target production -t portfolio-v2 .
-docker run -d --name portfolio -p 80:80 --restart unless-stopped portfolio-v2
+docker build --target production -t portfolioV2 .
+docker run -d --name portfolio -p 80:80 --restart unless-stopped portfolioV2
 ```
 
 4. **Configure o domínio e reverse proxy (Nginx externo ou Caddy):**

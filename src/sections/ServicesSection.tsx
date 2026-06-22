@@ -19,8 +19,8 @@ const tagColorClass: Record<ServiceColor, string> = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative min-h-screen flex flex-col overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-20 w-full">
+    <section id="services" className="relative min-h-[var(--section-min-h)] flex flex-col overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 py-[var(--section-py)] w-full">
         {/* Title */}
         <div className="mb-20 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full mb-6 border border-outline-variant/20">

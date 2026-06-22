@@ -38,8 +38,8 @@ export default function ProjectsSection() {
   }, [search]);
 
   return (
-    <section id="portfolio" className="relative min-h-screen flex flex-col overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-20 w-full">
+    <section id="portfolio" className="relative min-h-[var(--section-min-h)] flex flex-col overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 py-[var(--section-py)] w-full">
         {/* Header */}
         <header className="mb-16">
           <div className="flex items-center gap-3 mb-4">
