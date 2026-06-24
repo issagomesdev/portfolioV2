@@ -14,7 +14,7 @@ const revealDelayStyle = (delayMs: number): CSSProperties => ({ '--reveal-delay'
 
 export default function HeroSection() {
   const { ref: heroRef, scrollDirection, revealState } = useInViewAnimation<HTMLElement>({ threshold: 0.35 });
-  const delays = createDirectionalDelays(HERO_REVEAL_ORDER, scrollDirection, { start: 120, step: 120 });
+  const delays = createDirectionalDelays(HERO_REVEAL_ORDER, scrollDirection, { start: 100, step: 100 });
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);

@@ -62,7 +62,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <span className="w-8 h-px bg-primary inline-block" />
                   A Visão do Projeto
                 </h3>
-                <p className="text-on-surface-variant text-lg leading-relaxed font-light">{project.description}</p>
+                <p className="text-on-surface-variant text-lg leading-relaxed font-light whitespace-pre-line">
+                  {project.content}
+                </p>
               </section>
 
               <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -83,7 +85,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       <img
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                         src={img.src}
-                        alt={img.alt}
+                        alt={img.title}
                       />
                     </div>
                   ))}
@@ -99,9 +101,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   {project.stack.map((tech, i) => (
                     <span
                       key={tech}
-                      className={`px-3 py-1.5 bg-surface-container-highest font-label text-xs rounded flex items-center gap-2 ${
-                        i === 0 ? 'text-primary font-bold' : 'text-on-surface-variant'
-                      }`}
+                      className={`px-3 py-1.5 bg-surface-container-highest font-label text-xs rounded flex items-center gap-2 ${i === 0 ? 'text-primary font-bold' : 'text-on-surface-variant'
+                        }`}
                     >
                       {i === 0 && <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse inline-block" />}
                       {tech}
@@ -122,7 +123,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <a href={project.githubUrl} className="flex items-center justify-center gap-2 p-4 border border-outline-variant/30 text-on-surface-variant rounded-lg font-label text-sm hover:bg-surface-container-high hover:text-primary transition-all">
                     <span className="material-symbols-outlined text-lg">code</span> GITHUB
                   </a>
-                  <a href="#" className="flex items-center justify-center gap-2 p-4 border border-outline-variant/30 text-on-surface-variant rounded-lg font-label text-sm hover:bg-surface-container-high hover:text-tertiary transition-all">
+                  <a
+                    href={project.docsUrl} className="flex items-center justify-center gap-2 p-4 border border-outline-variant/30 text-on-surface-variant rounded-lg font-label text-sm hover:bg-surface-container-high hover:text-tertiary transition-all">
                     <span className="material-symbols-outlined text-lg">description</span> DOCS
                   </a>
                 </div>

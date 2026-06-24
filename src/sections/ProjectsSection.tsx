@@ -141,13 +141,13 @@ export default function ProjectsSection() {
                 }`}
               >
                 <div
-                  className={`absolute top-8 ${project.align === 'right' ? 'left-8' : 'right-8'} font-headline text-5xl font-black text-surface-container-highest opacity-50 select-none`}
+                  className={`absolute top-8 right-8 font-headline text-5xl font-black text-surface-container-highest opacity-50 select-none`}
                   aria-hidden="true"
                 >
                   {project.number}
                 </div>
 
-                <h2 className="font-headline text-3xl font-bold mb-4 text-on-surface">{project.title}</h2>
+                <h2 className="font-headline text-3xl font-bold mb-4 text-on-surface w-[80%]">{project.title}</h2>
                 <p className="text-on-surface-variant leading-relaxed mb-8 max-w-md">{project.description}</p>
 
                 <div className="flex gap-4 mb-8" aria-label="Tecnologias">

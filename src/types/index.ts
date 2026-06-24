@@ -11,19 +11,21 @@ export interface Project {
   number: string;
   title: string;
   description: string;
+  content: string;
   imageSrc: string;
   imageAlt: string;
   icons: Array<{ name: string; title: string }>;
   tags: string[];
   stack: string[];
   liveUrl: string;
-  githubUrl: string;
+  githubUrl?: string;
+  docsUrl?: string;
   align: 'left' | 'right';
   caseStudy: {
     year: string;
     challenge: string;
     solution: string;
-    galleryImages: Array<{ src: string; alt: string }>;
+    galleryImages: Array<{ title: string; description: string; src: string }>;
     client: string;
     role: string;
     date: string;
