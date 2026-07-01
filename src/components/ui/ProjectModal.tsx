@@ -130,7 +130,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-outline-variant/20 grid grid-cols-2 gap-y-6">
+              <div className="pt-6 border-t border-outline-variant/20 grid grid-cols-2 gap-y-6 gap-x-1">
                 {[
                   { label: 'CLIENTE', value: project.caseStudy.client },
                   { label: 'PAPEL', value: project.caseStudy.role },

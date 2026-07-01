@@ -113,7 +113,7 @@ export default function AboutSection() {
     threshold: 0.25,
     rootMargin: '-8% 0px -12% 0px',
   });
-  const delays = createDirectionalDelays(ABOUT_REVEAL_ORDER, scrollDirection, { start: 100, step: 100 });
+  const delays = createDirectionalDelays(ABOUT_REVEAL_ORDER, scrollDirection, { start: 50, step: 50 });
 
   return (
     <section id="about" ref={sectionRef} className="relative min-h-[var(--section-min-h)] flex flex-col overflow-hidden">
